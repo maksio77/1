@@ -16,7 +16,7 @@ const ListItem = (props) => {
                     </li>
                     <li>
                         <svg viewBox="0 0 18 18">
-                        <g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1">
+                        <g fill="none" fillRule="evenodd" id="Page-1" stroke="none" strokeWidth="1">
                             <g fill="#000000" id="Core" transform="translate(-213.000000, -129.000000)">
                             <g id="create" transform="translate(213.000000, 129.000000)">
                                 <path

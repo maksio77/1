@@ -5,10 +5,10 @@ const AddItem = () => {
         <div>
             <div className="form">
                     <div className="form__checkbox">
-                        <input class="styled-checkbox" id="add-checkbox" type="checkbox" value="value1" />
-                        <label for="add-checkbox" />
+                        <input className="styled-checkbox" id="add-checkbox" type="checkbox" value="value1" />
+                        <label htmlFor="add-checkbox" />
                     </div>
-                    <div class="form__fields">
+                    <div className="form__fields">
                         <input type="text" placeholder="Назва" className="input-title" />
                         <input type="text" placeholder="Введіть текст..." className="input-text" />
                     </div>
