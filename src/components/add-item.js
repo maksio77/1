@@ -1,17 +1,16 @@
 
 
-const AddItem = () => {
+const AddItem = ({onAdd}) => {
     return (
         <div>
             <div className="form">
                     <div className="form__checkbox">
-                        <input className="styled-checkbox" id="add-checkbox" type="checkbox" value="value1" />
                         <label htmlFor="add-checkbox" />
                     </div>
-                    <div className="form__fields">
+                    <form className="form__fields">
                         <input type="text" placeholder="Назва" className="input-title" />
                         <input type="text" placeholder="Введіть текст..." className="input-text" />
-                    </div>
+                    </form>
                     <svg height="32px" viewBox="0 0 512 512" width="32px">
                         <g>
                             <g>

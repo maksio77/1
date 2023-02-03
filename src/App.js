@@ -16,24 +16,45 @@ class App extends Component {
         { header: 'Футбол', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur ducimus reprehenderit suscipit.', id: 3 },
       ]
     }
+    this.maxId = 4;
   }
 
   deleteItem = (id) => {
-        this.setState(({ data }) => {
-            return {
-                data: data.filter(item => item.id !== id)
-            }
-        });
+    this.setState(({ data }) => {
+      return {
+        data: data.filter(item => item.id !== id)
+      }
+    });
+  }
+
+  addItem = (header, text) => {
+    const thing = {
+      header,
+      text,
+      id: this.maxId++
+    }
+
+    this.setState(({data}) => {
+      const newArray = [...data, ...thing];
+
+      return{
+        data: newArray
+      }
+    })
   }
 
     render() {
       const { data } = this.state;
       return (
         <div className="App">
+          
           <Filter />
+          
           <List data={data}
             onDelete={this.deleteItem} />
-          <AddItem />
+
+          <AddItem onAdd={this.addItem}/>
+        
         </div>
       );
     }
