@@ -4,7 +4,7 @@ const Filter = () => {
     return (
         <div className="top">
           <ul className="tabs">
-            <li className="active">Усі</li>
+            <li className="active">Всі</li>
             <li>Відкриті</li>
             <li>Виконані</li>
           </ul>
