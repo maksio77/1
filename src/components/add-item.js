@@ -1,31 +1,62 @@
 
+import { Component } from "react";
 
-const AddItem = ({onAdd}) => {
-    return (
-        <div>
-            <div className="form">
+class AddItem extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            header: '',
+            text: ''
+        }
+    }
+
+    onValueChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    onSubmit = (e) => {
+        e.preventDefault();
+        if (this.state.header.length>3 && this.state.text.length>7) {
+            this.props.onAdd(this.state.header, this.state.text);
+            this.setState({
+                header: '',
+                text: '',
+            });
+        }
+    }
+
+    render() {
+        const { header, text } = this.state;
+
+        return (
+            <div>
+                <div className="form">
                     <div className="form__checkbox">
                         <label htmlFor="add-checkbox" />
                     </div>
-                    <form className="form__fields">
-                        <input type="text" placeholder="Назва" className="input-title" />
-                        <input type="text" placeholder="Введіть текст..." className="input-text" />
+                    <form className="form__fields" onSubmit={this.onSubmit}>
+                            <input
+                                type="text"
+                                name='header'
+                                placeholder="Назва"
+                                className="input-title"
+                                value={header}
+                                onChange={this.onValueChange} />
+                            <input
+                                name='text'
+                                type="text"
+                                placeholder="Введіть текст..."
+                                className="input-text"
+                                value={text}
+                            onChange={this.onValueChange} />
+                            <button type="submit" className="button-add">+</button>
                     </form>
-                    <svg height="32px" viewBox="0 0 512 512" width="32px">
-                        <g>
-                            <g>
-                                <g>
-                                    <path d="M256,48C141.1,48,48,141.1,48,256s93.1,208,208,208c114.9,0,208-93.1,208-208S370.9,48,256,48z M256,446.7     c-105.1,0-190.7-85.5-190.7-190.7S150.9,65.3,256,65.3S446.7,150.9,446.7,256S361.1,446.7,256,446.7z" />
-                                </g>
-                            </g>
-                        <g>
-                            <polygon points="264.1,128 247.3,128 247.3,247.9 128,247.9 128,264.7 247.3,264.7 247.3,384 264.1,384 264.1,264.7 384,264.7     384,247.9 264.1,247.9   " />
-                        </g>
-                    </g>
-                </svg>
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
 export default AddItem;

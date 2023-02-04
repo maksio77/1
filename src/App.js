@@ -28,6 +28,7 @@ class App extends Component {
   }
 
   addItem = (header, text) => {
+    
     const thing = {
       header,
       text,
@@ -35,7 +36,7 @@ class App extends Component {
     }
 
     this.setState(({data}) => {
-      const newArray = [...data, ...thing];
+      const newArray = [...data, thing];
 
       return{
         data: newArray
@@ -55,7 +56,6 @@ class App extends Component {
 
           <AddItem onAdd={this.addItem}/>
         
-          
         </div>
       );
     }

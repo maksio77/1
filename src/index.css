@@ -187,3 +187,20 @@ body {
   box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
   transform: rotate(45deg);
 }
+
+.button-add{
+  background-color: 	rgb(200,200,200);
+  border:none;
+  color: white;
+  font-size:x-large;
+  border-radius:6px;
+  width: 40px;
+  height: 40px;
+  margin-left: 505px;
+  margin-bottom: 10px;
+  padding-bottom: 3px;
+}
+
+.err{
+  border-color: red;
+}
