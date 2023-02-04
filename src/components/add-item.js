@@ -26,6 +26,8 @@ class AddItem extends Component {
         }
     }
 
+    
+
     render() {
         const { header, text } = this.state;
 

@@ -5,6 +5,7 @@ import List from './components/list';
 import AddItem from './components/add-item';
 
 import './index.css';
+import ListItem from "./components/list-item";
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +15,8 @@ class App extends Component {
         { header: 'Помити машину', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur ducimus reprehenderit suscipit.', id: 1 },
         { header: 'Курси', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur ducimus reprehenderit suscipit.', id: 2 },
         { header: 'Футбол', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur ducimus reprehenderit suscipit.', id: 3 },
-      ]
+      ],
+      new: ''
     }
     this.maxId = 4;
   }
@@ -44,6 +46,17 @@ class App extends Component {
     })
   }
 
+  changeItem = (id) => {
+    this.setState(({data}) => {
+      return{
+        new: data.find((elem) => {
+          return elem.id === id;
+        })
+      }
+    })
+    console.log(this.state.new);
+  }
+
     render() {
       const { data } = this.state;
       return (
@@ -52,9 +65,14 @@ class App extends Component {
           <Filter />
           
           <List data={data}
-            onDelete={this.deleteItem} />
+            onDelete={this.deleteItem}
+            onChange={this.changeItem}
+          />
 
-          <AddItem onAdd={this.addItem}/>
+          <AddItem 
+          data={data}
+          onAdd={this.addItem}
+          />
         
         </div>
       );
